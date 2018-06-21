@@ -9,9 +9,9 @@ Gem::Specification.new do |s|
   s.version     = RailsMailPlugin::VERSION
   s.authors     = ["Ashish Singh"]
   s.email       = ["singhashish19031998@icloud.com"]
-  s.homepage    = "TODO"
-  s.summary     = "TODO: Summary of RailsMailPlugin."
-  s.description = "TODO: Description of RailsMailPlugin."
+  s.homepage    = ""
+  s.summary     = "Summary of RailsMailPlugin."
+  s.description = "Only use for educational purposes"
   s.license     = "MIT"
 
   s.files = Dir["{app,config,db,lib}/**/*", "MIT-LICENSE", "Rakefile", "README.md"]
