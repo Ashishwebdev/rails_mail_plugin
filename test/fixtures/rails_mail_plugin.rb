@@ -3,7 +3,7 @@ class SampleMail < RailsMailPlugin::Base
   attributes :name, :email
 
   def headers
-    {to: "recipient@example.com", from: self.email }
+    {to: "ashishsinghb98@gmail.com", from: self.email }
   end
 
 end

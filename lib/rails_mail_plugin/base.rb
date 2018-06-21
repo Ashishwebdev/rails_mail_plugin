@@ -38,6 +38,11 @@ module RailsMailPlugin
       end
     end
 
+    def initialize(attributes = {})
+      attributes.each do |attr, value|
+        self.public_send("#{attr}=", value)
+      end if attributes
+    end
 
     protected
     def clear_attribute(attribute)
