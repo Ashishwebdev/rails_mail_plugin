@@ -7,7 +7,7 @@ class NavigationTest < ActiveSupport::IntegrationCase
   test "sends an e-mail after filling the contact form" do
     visit "/"
     fill_in "Name",    with: "John Doe"
-    fill_in "Email",   with: "ashishsinghb98@gmail.com"
+    fill_in "Email",   with: "john.doe@example.com"
     fill_in "Message", with: "MailForm rocks!"
 
     click_button "Deliver"
@@ -17,7 +17,7 @@ class NavigationTest < ActiveSupport::IntegrationCase
     mail = ActionMailer::Base.deliveries.last
 
     assert_equal ["john.doe@example.com"], mail.from
-    assert_equal ["ashishsinghb98@gmail.com"], mail.to
+    assert_equal ["recipient@example.com"], mail.to
     assert_match "Message: MailForm rocks!", mail.body.encoded
   end
 end

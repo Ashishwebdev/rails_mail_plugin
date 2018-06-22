@@ -6,11 +6,17 @@ module RailsMailPlugin
     include ActiveModel::AttributeMethods
 
     include ActiveModel::Conversion
+
     extend ActiveModel::Naming
     extend ActiveModel::Translation
 
     include ActiveModel::Validations
 
+   include RailsMailPlugin::Validators
+
+    extend ActiveModel::Callbacks
+
+    define_model_callbacks :deliver
 
     attribute_method_prefix 'clear_'
     attribute_method_suffix '?'
@@ -32,7 +38,9 @@ module RailsMailPlugin
 
     def deliver
       if valid?
+        run_callbacks(:deliver) do
         RailsMailPlugin::Notifier.contact(self).deliver
+         end
       else
         false
       end
